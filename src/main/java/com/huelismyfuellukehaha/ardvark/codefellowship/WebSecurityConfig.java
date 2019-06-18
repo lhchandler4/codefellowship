@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .and()
-                .logout();
+                .logout().logoutSuccessUrl("/logout_completed");
     }
 
     @Override
