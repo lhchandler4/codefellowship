@@ -7,10 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 
@@ -21,10 +18,15 @@ public class AppUser implements UserDetails {
     long id;
 
     String username;
+
     String password;
+
     String firstName;
+
     String lastName;
+
     Date dateOfBirth;
+
     String bio;
 
     public long getId() {

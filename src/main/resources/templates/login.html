@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
     <title>Log in </title>
 </head>
 <body>
-<h1>Log in</h1>
+<H1>Welcome to the Codefellowship!</H1><br>
+<p>Log in if you are already registered or if not you are not registered, you can sign up!</p><br>
+<h3>Log in</h3>
+<div id="formLogin">
 <form action="/login" method="POST">
     <input name="username" />
     <input name="password" />
     <input type="submit" />
 </form>
+</div><br>
+<div id="link">
 <a th:href="@{/signup}">Sign Up</a>
-
+</div>
 </body>
 </html>

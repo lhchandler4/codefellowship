@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
     <title>CodeFellowship of the Ring</title>
 </head>
 <body>
-<h1>
-<img src="cashMoney.jpeg" alt="Cash">
-</h1>
+
+<img src="/cashMoney.jpeg" alt="Cash" width="400px">
+<a th:href="@{/users}">All the Users</a>
 </body>
 </html>

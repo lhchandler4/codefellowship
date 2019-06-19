@@ -1,0 +1,48 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+font-weight: bold;
+margin-top: 15px;
+}
+
+#link {
+margin-top: 30px;
+}
+
+#formLogin, h1, p, h3, #link {
+  display: block;
+  text-align: center;
+}
+
+#signupform {
+  display: block;
+  text-align: center;
+  margin-top: 45px;
+}
+
+img {
+    border-radius: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+#myprof {
+    display: block;
+    text-align: center;
+    margin-top: 45px;
+}
+
+ul{
+    display: block;
+    text-align: center;
+    margin-top: 45px;
+}
+
+a{
+    display: block;
+    text-align: center;
+}
