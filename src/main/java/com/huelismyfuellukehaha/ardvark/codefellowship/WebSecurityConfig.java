@@ -38,14 +38,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 // allow requests to all URLS that match the patterns even if not logged in
-                .antMatchers("/codefellowshipOfTheRing", "/login", "/signup").permitAll()
+                .antMatchers("/codefellowshipOfTheRing", "/login", "/signup", "/*.css").permitAll()
                 // anything else, you must be logged in
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/myprofile")
+                .failureUrl("/login")
                 .and()
-                .logout();
+                .logout().logoutUrl("/logout_completed").deleteCookies("JSESSIONID");
     }
 
     @Override

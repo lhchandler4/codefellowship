@@ -43,6 +43,13 @@ public class AppUserController {
         return "details.html";
     }
 
+//    @GetMapping("/login")
+//    public String getLoginPage(Principal p, Model m) {
+//        System.out.println(p.getName());
+//        m.addAttribute("principal", p);
+//        return "login.html";
+//    }
+
     @GetMapping("/login")
     public String getLoginPage() {
         return "login";
@@ -65,6 +72,7 @@ public class AppUserController {
     @GetMapping("/myprofile")
     public String getMyProfileInfo(Principal p, Model m) {
         AppUser user = appUserRepository.findByUsername(p.getName());
+        System.out.println("****** FOUND USER " + user.firstName);
         m.addAttribute("user", user);
         return "myprofile.html";
     }
@@ -74,4 +82,8 @@ public class AppUserController {
         return "codefellowshipOfTheRing.html";
     }
 
+    @GetMapping("/logout_completed")
+    public String getLogoutPage() {
+        return "logout_completed.html";
+    }
 }
