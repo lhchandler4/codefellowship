@@ -7,7 +7,7 @@
     <title>CodeFellowship of the Ring</title>
 </head>
 <body>
-
+<h2 class="name">We appreciate you, <span th:text="${user.username}"></span></h2>
 <img src="/cashMoney.jpeg" alt="Cash" width="400px">
 <a th:href="@{/users}">All the Users</a>
 <div th:replace="fragments/footer :: foot"></div>

@@ -30,9 +30,11 @@ public class AppUserController {
     }
 
     @GetMapping("/users")
-    public String getAllUsers(Model m) {
+    public String getAllUsers(Model m, Principal p) {
         Iterable<AppUser> user = appUserRepository.findAll();
         m.addAttribute("user", user);
+        AppUser name = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("name", name);
         return "users.html";
     }
 
@@ -77,7 +79,9 @@ public class AppUserController {
     }
 
     @GetMapping("/codefellowshipOfTheRing")
-    public String getRingForm() {
+    public String getRingForm(Model m, Principal p) {
+        AppUser user = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("user", user);
         return "codefellowshipOfTheRing.html";
     }
 

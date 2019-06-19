@@ -8,11 +8,12 @@
 </head>
 <body>
 <!--<div th:replace="fragments/header :: potato">...</div>-->
+<h2>What are you thinking? Write a post.</h2>
 <form action="/posts" method="POST">
     Post Body: <input type="body" name="body" />
     Date Created: <input type="createdAt" name="createdAt" />
     <input type="submit" />
 </form>
-
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
