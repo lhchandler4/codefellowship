@@ -1,15 +1,12 @@
 package com.huelismyfuellukehaha.ardvark.codefellowship;
 
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class AppUser implements UserDetails {
@@ -87,6 +84,17 @@ public class AppUser implements UserDetails {
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.bio = bio;
+    }
+
+    @OneToMany(mappedBy = "creator")
+    List<Post> posts;
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
     }
 
     @Override

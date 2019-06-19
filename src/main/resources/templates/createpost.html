@@ -4,12 +4,15 @@
 <link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
-    <title>CodeFellowship of the Ring</title>
+    <title>Write a Post</title>
 </head>
 <body>
+<!--<div th:replace="fragments/header :: potato">...</div>-->
+<form action="/posts" method="POST">
+    Post Body: <input type="body" name="body" />
+    Date Created: <input type="createdAt" name="createdAt" />
+    <input type="submit" />
+</form>
 
-<img src="/cashMoney.jpeg" alt="Cash" width="400px">
-<a th:href="@{/users}">All the Users</a>
-<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

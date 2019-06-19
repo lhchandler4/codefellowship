@@ -72,7 +72,6 @@ public class AppUserController {
     @GetMapping("/myprofile")
     public String getMyProfileInfo(Principal p, Model m) {
         AppUser user = appUserRepository.findByUsername(p.getName());
-        System.out.println("****** FOUND USER " + user.firstName);
         m.addAttribute("user", user);
         return "myprofile.html";
     }
