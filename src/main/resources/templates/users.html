@@ -7,6 +7,7 @@
     <title>Users</title>
 </head>
 <body>
+<h2 class="name">You're Awesome, <span th:text="${name.username}"></span></h2>
 <h1>All the Users</h1>
 <ul>
     <li th:each="user : ${user}">

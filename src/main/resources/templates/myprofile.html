@@ -7,6 +7,7 @@
     <title>My Profile</title>
 </head>
 <body>
+<h2 class="name">You're Awesome, <span th:text="${user.username}"></span></h2>
 <h1>My Profile</h1>
 <p>Here is all of your basic information:</p>
 <img src="user.jpeg" alt="UserPic" width="500px">
@@ -16,7 +17,7 @@
         First Name: <span th:text="${user.firstName}"></span><br>
         Last Name: <span th:text="${user.lastName}"></span><br>
         Date of Birth: <span th:text="${user.dateOfBirth}"></span><br>
-        Bio: <span th:text="${user.bio}"></span><br>
+        Bio: <span th:text="${user.bio}"></span><br><br><br>
 
     <h5>Your posts:</h5>
     <ul>
