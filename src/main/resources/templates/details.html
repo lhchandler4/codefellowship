@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
@@ -17,5 +18,9 @@
         Bio: <span th:text="${user.bio}"></span><br>
     </li>
 </ul>
+<a th:href="@{/codefellowshipOfTheRing}">To the CodeFellowship of the Ring!</a><br>
+<a th:href="@{/users}">Check out all the members of the CodeFellowship!</a><br>
+<a href="/logout_completed">Logout</a>
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

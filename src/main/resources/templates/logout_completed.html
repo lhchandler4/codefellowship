@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,8 @@
 </head>
 <body>
     <h1>You have been successfully logged out!</h1>
+    <p>Thank You for visiting and being a part of the CodeFellowship!</p>
     <a th:href="@{/login}">Click here to Login again!</a>
+    <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

@@ -1,3 +1,11 @@
+.nav {
+    color: lightgray;
+    background-color: blue;
+    display: inline;
+    text-align: center;
+    width: auto;
+}
+
 body {
   background-color: lightblue;
 }
@@ -5,6 +13,13 @@ body {
 h1 {
 font-weight: bold;
 margin-top: 15px;
+}
+
+.foot {
+ color: lightgray;
+ text-align: center;
+ background-color: blue;
+ margin-top: 30px;
 }
 
 #link {
@@ -36,13 +51,20 @@ img {
     margin-top: 45px;
 }
 
-ul{
+ul {
     display: block;
     text-align: center;
-    margin-top: 45px;
+    margin-top: 30px;
+    list-style: none;
 }
 
 a{
     display: block;
     text-align: center;
+}
+
+#errorMsg {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }

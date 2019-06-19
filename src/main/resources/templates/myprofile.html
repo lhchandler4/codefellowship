@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
@@ -7,20 +8,30 @@
 </head>
 <body>
 <h1>My Profile</h1>
+<p>Here is all of your basic information:</p>
 <img src="user.jpeg" alt="UserPic" width="500px">
 <div id="myprof">
-<ul>
-    <li th:each="user : ${user}">
+
         Username: <span th:text="${user.username}"></span><br>
         First Name: <span th:text="${user.firstName}"></span><br>
         Last Name: <span th:text="${user.lastName}"></span><br>
         Date of Birth: <span th:text="${user.dateOfBirth}"></span><br>
         Bio: <span th:text="${user.bio}"></span><br>
-    </li>
-</ul>
+
+    <h5>Your posts:</h5>
+    <ul>
+        <li th:each="post : ${user.posts}">
+            <span th:text="${post.body}"></span>
+            <span th:text="${post.createdAt}"></span>
+            </a>
+        </li>
+    </ul>
+
 </div>
+<a th:href="@{/createpost}">Create a post</a><br>
 <a th:href="@{/codefellowshipOfTheRing}">To the CodeFellowship of the Ring!</a><br>
 <a th:href="@{/users}">Check out all the members of the CodeFellowship!</a><br>
 <a href="/logout_completed">Logout</a>
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

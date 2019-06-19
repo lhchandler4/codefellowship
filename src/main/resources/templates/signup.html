@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
@@ -14,10 +15,10 @@
     <label for="firstName">First Name:</label><input name="firstName" id="firstName"/><br><br>
     <label for="lastName">Last Name:</label><input name="lastName" id="lastName"/>
     <label for="dateOfBirth">Date of birth:</label><input name="dateOfBirth" id="dateOfBirth"/><br><br>
-    <label for="bio">Bio:</label><input name="bio" id="bio" input type="textbox"/><br><br>
+    <label for="bio">Bio:</label><input name="bio" id="bio" input type="text"/><br><br>
     <input type="submit" />
 </form>
 </div>
-
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
