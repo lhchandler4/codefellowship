@@ -25,6 +25,10 @@ profile. They can also view the profiles of other users based on their usernames
     - the default error page to show a few details
 - @Getmapping("logout_completed)
     - a page to show that a user has been successfully logged out
+- @Getmapping("home")
+    - Splash page
+- @Getmapping("feed")
+    - a page to show the posts of all the people the logged in user is following
 
 ## Directions
 - IntelliJ
@@ -35,7 +39,8 @@ profile. They can also view the profiles of other users based on their usernames
     - build and run ```./gradlew bootRun```
 
 ## Routes
--- ```localhost:8080```
+- ```localhost:8080```
+- ```localhost:8080/home```
 - ```localhost:8080/login```
 - ```localhost:8080/signup```
 - ```localhost:8080/users```
@@ -45,8 +50,9 @@ profile. They can also view the profiles of other users based on their usernames
 - ```localhost:8080/codefellowshipOfTheRing```
 - ```localhost:8080/logout_completed```
 - ```localhost:8080/createpost```
+- ```localhost:8080/feed```
 
 
 ## Acknowledgments
 - I relied heavily on the class repo dinosaur demo. 
-- I have also received assistance from Will Fritts, Reina, and Evan
+- I have also received assistance from Will Fritts, Reina, Williams, and Evan
