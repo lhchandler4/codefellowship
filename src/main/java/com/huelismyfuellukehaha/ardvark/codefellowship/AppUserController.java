@@ -39,9 +39,11 @@ public class AppUserController {
     }
 
     @RequestMapping(value="details/{id}",method = RequestMethod.GET)
-    public String getOneUserDetail(@PathVariable Long id, Model m){
+    public String getOneUserDetail(@PathVariable Long id, Model m, Principal p){
         AppUser user = appUserRepository.findById(id).get();
         m.addAttribute("user", user);
+        AppUser loggedIn = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("loggedIn", loggedIn);
         return "details.html";
     }
 
