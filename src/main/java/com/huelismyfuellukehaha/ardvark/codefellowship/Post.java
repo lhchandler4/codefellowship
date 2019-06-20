@@ -2,6 +2,7 @@ package com.huelismyfuellukehaha.ardvark.codefellowship;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Post {
@@ -40,6 +41,7 @@ public class Post {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
 
     @ManyToOne
     AppUser creator;

@@ -52,12 +52,21 @@ public class AppUserController {
         return "details.html";
     }
 
-//    @GetMapping("/login")
-//    public String getLoginPage(Principal p, Model m) {
-//        System.out.println(p.getName());
-//        m.addAttribute("principal", p);
-//        return "login.html";
-//    }
+    @GetMapping("/feed")
+    public String followersFeeds(Model m, Principal p){
+        AppUser user = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("user",user);
+        return"feed.html";
+    }
+
+    @PostMapping("/follow/{id}")
+    public RedirectView followSomePeeps(@PathVariable Long id, Principal p){
+        AppUser loggedInUser = appUserRepository.findByUsername(p.getName());
+        AppUser newFriend = appUserRepository.findById(id).get();
+        loggedInUser.followers.add(newFriend);
+        appUserRepository.save(loggedInUser);
+        return new RedirectView("/myprofile");
+    }
 
     @GetMapping("/login")
     public String getLoginPage() {

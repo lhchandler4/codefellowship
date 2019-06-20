@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -51,7 +52,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    public String showDinosaur(@PathVariable long id, Model m, Principal p) {
+    public String showPosts(@PathVariable long id, Model m, Principal p) {
         Post post = postsRepository.findById(id).get();
         // check if that post belongs to the currently logged in user
         if (post.getCreator().username.equals(p.getName())) {

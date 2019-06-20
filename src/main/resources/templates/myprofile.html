@@ -28,7 +28,13 @@
         </li>
     </ul>
 
+    <h4>Peeps You're Following:</h4>
+    <ul>
+        <li th:each="followers : ${user.followers}"><span th:text= "${followers.username}"></span></li>
+    </ul>
+
 </div>
+<a th:href="@{/feed}">My Feed</a><br>
 <a th:href="@{/createpost}">Create a post</a><br>
 <a th:href="@{/codefellowshipOfTheRing}">To the CodeFellowship of the Ring!</a><br>
 <a th:href="@{/users}">Check out all the members of the CodeFellowship!</a><br>

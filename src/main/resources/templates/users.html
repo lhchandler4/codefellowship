@@ -9,12 +9,21 @@
 <body>
 <h2 class="name">You're Awesome, <span th:text="${name.username}"></span></h2>
 <h1>All the Users</h1>
-<ul>
-    <li th:each="user : ${user}">
-        User Name: <span th:text="${user.username}"></span><br>
-        <a th:href="@{'/details/' + ${user.id}}">Details</a>
-    </li>
-</ul>
+
+<table>
+    <thead>
+    <th>Username</th>
+    <th>All the Dets</th>
+    <th>Follow</th>
+    </thead>
+    <tr th:each="tonga : ${user}">
+        <td><span th:text="${tonga.username}"></span></td>
+        <td><a th:href="@{'/details/' + ${tonga.id}}">All the Dets</a></td>
+        <td>
+            <form th:action="'/follow/' + ${tonga.id}" method="POST"><input type="submit" value="Follow"></form>
+        </td>
+    </tr>
+</table>
 <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
