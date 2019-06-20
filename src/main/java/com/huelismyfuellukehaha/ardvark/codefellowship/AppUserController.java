@@ -26,7 +26,12 @@ public class AppUserController {
 
     @GetMapping("/")
     public RedirectView goLogin(){
-        return new RedirectView("/login");
+        return new RedirectView("/home");
+    }
+
+    @GetMapping("/home")
+    public String goHome(){
+        return ("/home.html");
     }
 
     @GetMapping("/users")
