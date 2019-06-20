@@ -32,7 +32,9 @@ public class PostController {
 //    }
 
     @GetMapping("/createpost")
-    public String getPostCreator() {
+    public String getPostCreator(Model m, Principal p) {
+        AppUser user = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("user", user);
         return "createPost";
     }
 
