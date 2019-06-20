@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<link href="/styles.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>Feeds</title>
+</head>
+<body>
+<h2>I'm Following:</h2>
+<fieldset th:each="tonga : ${user.followers}">
+    <legend th:text="${tonga.username}"></legend>
+    <ul>
+        <li th:each="post: ${tonga.posts}"><span th:text="${post.body}"></span></li>
+    </ul>
+</fieldset>
+</body>
+</html>

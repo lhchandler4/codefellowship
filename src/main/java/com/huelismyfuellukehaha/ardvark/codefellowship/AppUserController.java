@@ -26,7 +26,12 @@ public class AppUserController {
 
     @GetMapping("/")
     public RedirectView goLogin(){
-        return new RedirectView("/login");
+        return new RedirectView("/home");
+    }
+
+    @GetMapping("/home")
+    public String goHome(){
+        return ("/home.html");
     }
 
     @GetMapping("/users")
@@ -39,18 +44,29 @@ public class AppUserController {
     }
 
     @RequestMapping(value="details/{id}",method = RequestMethod.GET)
-    public String getOneUserDetail(@PathVariable Long id, Model m){
+    public String getOneUserDetail(@PathVariable Long id, Model m, Principal p){
         AppUser user = appUserRepository.findById(id).get();
         m.addAttribute("user", user);
+        AppUser loggedIn = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("loggedIn", loggedIn);
         return "details.html";
     }
 
-//    @GetMapping("/login")
-//    public String getLoginPage(Principal p, Model m) {
-//        System.out.println(p.getName());
-//        m.addAttribute("principal", p);
-//        return "login.html";
-//    }
+    @GetMapping("/feed")
+    public String followersFeeds(Model m, Principal p){
+        AppUser user = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("user",user);
+        return"feed.html";
+    }
+
+    @PostMapping("/follow/{id}")
+    public RedirectView followSomePeeps(@PathVariable Long id, Principal p){
+        AppUser loggedInUser = appUserRepository.findByUsername(p.getName());
+        AppUser newFriend = appUserRepository.findById(id).get();
+        loggedInUser.followers.add(newFriend);
+        appUserRepository.save(loggedInUser);
+        return new RedirectView("/myprofile");
+    }
 
     @GetMapping("/login")
     public String getLoginPage() {
