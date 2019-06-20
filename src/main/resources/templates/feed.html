@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 <link href="/styles.css" rel="stylesheet" />
 <head>
     <meta charset="UTF-8">
@@ -13,6 +12,8 @@
     <ul>
         <li th:each="post: ${tonga.posts}"><span th:text="${post.body}"></span></li>
     </ul>
-</fieldset>
+</fieldset><br>
+<a th:href="@{/users}">Check out all the members of Codefellowship and Follow someone and/or follow more!</a><br>
+<a th:href="@{/myprofile}">Back to Your Profile</a><br>
 </body>
 </html>

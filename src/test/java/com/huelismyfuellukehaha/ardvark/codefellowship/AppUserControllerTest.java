@@ -30,11 +30,6 @@ public class AppUserControllerTest {
         mockMvc.perform(get("/login")).andExpect(content().string(containsString("Welcome to the Codefellowship!")));
     }
 
-//    @Test
-//    public void testLogout() throws Exception {
-//        mockMvc.perform(get("/codefellowshipOfTheRing")).andExpect(content().string(containsString("CodeFellowship of the Ring")));
-//    }
-
     @Test
     public void testMyProfile() throws Exception {
         mockMvc.perform(get("/myprofile")).andExpect(content().string(containsString("")));

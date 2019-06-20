@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.Date;
-import java.util.List;
+
 
 @Controller
 public class PostController {
@@ -22,15 +22,6 @@ public class PostController {
 
     @Autowired
     AppUserRepository appUserRepository;
-
-//    @GetMapping("/")
-//    public String getPosts(Principal p, Model m) {
-//        System.out.println(p.getName());
-//        AppUser me = appUserRepository.findByUsername(p.getName());
-//
-//        m.addAttribute("loggedInUser", me);
-//        return "posts";
-//    }
 
     @GetMapping("/createpost")
     public String getPostCreator(Model m, Principal p) {
@@ -61,12 +52,10 @@ public class PostController {
         } else {
             throw new PostIsNotYoursException("That post is not yours.");
         }
-
-
     }
 }
 
-// came from https://stackoverflow.com/questions/2066946/trigger-404-in-spring-mvc-controller
+//https://stackoverflow.com/questions/2066946/trigger-404-in-spring-mvc-controller
 @ResponseStatus(value = HttpStatus.FORBIDDEN)
 class PostIsNotYoursException extends RuntimeException {
     public PostIsNotYoursException(String s) {

@@ -36,8 +36,6 @@ public class CodefellowshipApplicationTests {
 		this.mockMvc
 				.perform(get("/login"))
 				.andExpect(status().isOk());
-////				.andExpect(view().name("login"))
-////				.andExpect(content().string(html));
 	}
 
 }
