@@ -8,7 +8,8 @@
 </head>
 <body>
 <!--<div th:replace="fragments/header :: potato">...</div>-->
-<h2>What are you thinking? Write a post.</h2>
+
+<h2>What are you thinking <span th:text="${user.username}"></span>? Write a post about it.</h2>
 <form action="/posts" method="POST">
     Post Body: <input type="body" name="body" />
     Date Created: <input type="createdAt" name="createdAt" />

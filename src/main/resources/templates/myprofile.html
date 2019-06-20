@@ -22,7 +22,7 @@
     <h5>Your posts:</h5>
     <ul>
         <li th:each="post : ${user.posts}">
-            <span th:text="${post.body}"></span>
+            <span th:text="${post.body}"></span> : written at
             <span th:text="${post.createdAt}"></span>
             </a>
         </li>

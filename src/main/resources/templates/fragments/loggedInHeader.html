@@ -1,0 +1,10 @@
+<header class="header" th:fragment="header(principal)" xmlns:th="http://www.springframework.org/schema/security">
+    <h1>CodeFellowShip!</h1>
+    <nav>
+        <a href="/">Home</a>
+        <!--        <a href="/login">Login</a>-->
+        <!--        <a href="/signup">Sign up</a>-->
+        <a href="/logout">Log out</a>
+        [[${principal.getName()}]]
+    </nav>
+</header>
