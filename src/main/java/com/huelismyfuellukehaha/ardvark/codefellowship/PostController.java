@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
-import java.util.Date;
-import java.util.List;
+
 
 @Controller
 public class PostController {
@@ -23,15 +22,6 @@ public class PostController {
     @Autowired
     AppUserRepository appUserRepository;
 
-//    @GetMapping("/")
-//    public String getPosts(Principal p, Model m) {
-//        System.out.println(p.getName());
-//        AppUser me = appUserRepository.findByUsername(p.getName());
-//
-//        m.addAttribute("loggedInUser", me);
-//        return "posts";
-//    }
-
     @GetMapping("/createpost")
     public String getPostCreator(Model m, Principal p) {
         AppUser user = appUserRepository.findByUsername(p.getName());
@@ -40,12 +30,9 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public RedirectView addDinosaur(String body, Date createdAt, Principal p, Model m) {
-        Post newPost = new Post();
-        newPost.body = body;
-        newPost.createdAt = createdAt;
+    public RedirectView addDinosaur(String body, Principal p, Model m) {
         AppUser me = appUserRepository.findByUsername(p.getName());
-        newPost.creator = me;
+        Post newPost = new Post(body, me);
         postsRepository.save(newPost);
         m.addAttribute("user", me);
         return new RedirectView("/myprofile");
@@ -61,12 +48,10 @@ public class PostController {
         } else {
             throw new PostIsNotYoursException("That post is not yours.");
         }
-
-
     }
 }
 
-// came from https://stackoverflow.com/questions/2066946/trigger-404-in-spring-mvc-controller
+//https://stackoverflow.com/questions/2066946/trigger-404-in-spring-mvc-controller
 @ResponseStatus(value = HttpStatus.FORBIDDEN)
 class PostIsNotYoursException extends RuntimeException {
     public PostIsNotYoursException(String s) {

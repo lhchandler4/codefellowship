@@ -19,9 +19,11 @@
         Bio: <span th:text="${user.bio}"></span><br>
     </li>
 </ul>
+
 <a th:href="@{/codefellowshipOfTheRing}">To the CodeFellowship of the Ring!</a><br>
 <a th:href="@{/users}">Check out all the members of the CodeFellowship!</a><br>
 <a href="/logout_completed">Logout</a>
+
 <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

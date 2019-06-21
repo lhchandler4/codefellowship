@@ -1,8 +1,7 @@
 package com.huelismyfuellukehaha.ardvark.codefellowship;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Entity
 public class Post {
@@ -34,17 +33,23 @@ public class Post {
         this.body = body;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
+    public Post(){}
+    public Post(String body, AppUser creator){
+        this.body = body;
+        this.creator = creator;
+        this.createdAt = LocalDateTime.now();
+    }
 
     @ManyToOne
     AppUser creator;
     String body;
-    Date createdAt;
+    LocalDateTime createdAt;
 }

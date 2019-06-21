@@ -10,7 +10,8 @@
 <h2 class="name">You're Awesome, <span th:text="${name.username}"></span></h2>
 <h1>All the Users</h1>
 
-<table>
+
+<table id="table">
     <thead>
     <th>Username</th>
     <th>All the Dets</th>
@@ -25,7 +26,9 @@
             </div>
         </td>
     </tr>
-</table>
+</table><br>
+
+<a th:href="@{/myprofile}">Back to Your Profile</a><br>
 <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
