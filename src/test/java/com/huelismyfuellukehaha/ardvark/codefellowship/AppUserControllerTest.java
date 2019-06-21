@@ -26,8 +26,18 @@ public class AppUserControllerTest {
     }
 
     @Test
+    public void testSplash() throws Exception {
+        mockMvc.perform(get("/home")).andExpect(content().string(containsString("Welcome to the Codefellowship!")));
+    }
+
+    @Test
     public void testLogin() throws Exception {
         mockMvc.perform(get("/login")).andExpect(content().string(containsString("Welcome to the Codefellowship!")));
+    }
+
+    @Test
+    public void testSignUp() throws Exception {
+        mockMvc.perform(get("/signup")).andExpect(content().string(containsString("")));
     }
 
     @Test
