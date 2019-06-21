@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
-import java.util.Date;
 
 
 @Controller
@@ -31,12 +30,9 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public RedirectView addDinosaur(String body, Date createdAt, Principal p, Model m) {
-        Post newPost = new Post();
-        newPost.body = body;
-        newPost.createdAt = createdAt;
+    public RedirectView addDinosaur(String body, Principal p, Model m) {
         AppUser me = appUserRepository.findByUsername(p.getName());
-        newPost.creator = me;
+        Post newPost = new Post(body, me);
         postsRepository.save(newPost);
         m.addAttribute("user", me);
         return new RedirectView("/myprofile");

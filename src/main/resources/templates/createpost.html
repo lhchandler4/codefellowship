@@ -11,9 +11,9 @@
 <h2>What are you thinking <span th:text="${user.username}"></span>? Write a post about it.</h2>
 <form action="/posts" method="POST">
     Post Body: <input type="body" name="body" />
-    Date Created: <input type="createdAt" name="createdAt" />
     <input type="submit" />
 </form>
+
 <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
